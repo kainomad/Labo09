@@ -38,7 +38,7 @@ int main() {
    ,{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0}};
    int choixEx, val;
    string texteEnSortie;
-   string texteChoixEx = "Veuillez choisir un exercice [1-8] et [0] pour quitter : (ps : Gael aime la bite) ";
+   string texteChoixEx = "Veuillez svp choisir un exercice [1-8] et [0] pour quitter : (ps : Gael aime la bite) ";
 
    do {
       saisieValeur(texteChoixEx, choixEx);
