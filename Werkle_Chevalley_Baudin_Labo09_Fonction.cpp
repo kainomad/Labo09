@@ -1,5 +1,5 @@
 /*
-\file [Werkle_Chevalley_Baudin_Labo08_Fonction.cpp]
+\file [Werkle_Chevalley_Baudin_Labo09_Fonction.cpp]
 \brief { Ce programme proposera 8 petits exercices de manipulations de tableaux en
  *       fontion de la saisie utilisateur (1-8)}
 \details { 1) Permet de saisir des valeurs entières croissantes dane le 1er tableau
@@ -25,7 +25,7 @@
 #include <climits>
 #include <iostream>
 #include <string>
-#include "Werkle_Chevalley_Baudin_Labo08_Fonction.h"
+#include "Werkle_Chevalley_Baudin_Labo09_Fonction.h"
 
 void inserer(int tab[], const int N, int val) {
    int positionInsertion;
