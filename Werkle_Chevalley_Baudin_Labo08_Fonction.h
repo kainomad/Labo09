@@ -18,8 +18,6 @@
 
 using namespace std;
 
-const int N = 7;
-
 /**
  * \brief Fonction de copie de table vers table2
  * \param[in] table1
@@ -28,7 +26,7 @@ const int N = 7;
  *
  * Cette Fonction permet de copier toutes les valeurs de table1 vers table2
  */
-void copieTable1Table2(int table1[], int table2[], int N);
+void copieTable1Table2(vector<int> v1, vector<int> v2);
 
 /**
  * \brief Fonction de changement de valeur dans table2
@@ -38,7 +36,7 @@ void copieTable1Table2(int table1[], int table2[], int N);
  * Cette Fonction permet d'intervertir toutes les valeurs consécutives 2 à 2
  * dans table2
  */
-void changerValTable2(int table2[], int N);
+void changerValTable2(vector<int> v2);
 
 /**
  * \brief Fonction d'affichage des valeurs des tableaux
@@ -52,24 +50,21 @@ void afficherTableau( int table1[], int table2[], int N);
 
 /**
  \brief Insère une valeur dans un tableau
- * \param[in] tab contient un tableau de numériques entiers
- * \param[in] N contient la taille du tableau
+ * \param[in] v1 contient un vector de numériques entiers
  * \param[in] val contient la valeur à insérer
  *
- * Insère dans un tableau une valeur numérique en respectant l'ordre
+ * Insère dans un vector une valeur numérique en respectant l'ordre
  * de croissance
  */
-void inserer(int tab[], const int N, int val);
+void inserer(vector<int>& v1, int val);
 
 /**
  \brief Supprime les doublons d'un tableau
- * \param[in] tab contient un tableau de numériques entiers
- * \param[in] N contient la taille du tableau
+ * \param[in] v1 contient un vecteur de numériques entiers
  *
- * Supprime dans un tableau les doublons et remplace les valeurs laissées vides par
- * des 0
+ * Supprime dans un vecteur les doublons
  */
-void supprimerDoublons(int tab[], const int N);
+void supprimerDoublons(vector<int>& v1);
 
 /**
  \brief Supprime les valeurs paires d'un tableau

@@ -20,6 +20,7 @@
 #include <climits>
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Werkle_Chevalley_Baudin_Labo08_Fonction.h"
 
 
@@ -27,8 +28,9 @@ using namespace std;
 
 int main() {
 
-   vector<int> v1 = 0;
-   vector<int> v2 = 0;
+   vector<int> v1 {1,2,3,4,5};
+   vector<int> v2(0);
+
 
    int choixEx, val;
    string texteEnSortie;
@@ -54,13 +56,12 @@ int main() {
             {
                viderSaisie(texteEnSortie, val);
             }
-
-            inserer(table1, N, val);
+            inserer(v1, val);
             break;
          }
          case 2:
          {
-            afficherTableau(table1, table2, N);
+
             break;
          }
          case 3:
@@ -70,17 +71,17 @@ int main() {
          }
          case 4:
          {
-            supprimerDoublons(table1, N);
+            supprimerDoublons(v1);
             break;
          }
          case 5:
          {
-            supprimerValeursPaires(table1, N);
+
             break;
          }
          case 6:
          {
-            changerValTable2(table2, N);
+            changerValTable2 (v2);
             break;
          }
       }
