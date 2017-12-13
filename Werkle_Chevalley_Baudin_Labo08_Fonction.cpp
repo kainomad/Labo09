@@ -23,38 +23,37 @@
 #include <vector>
 #include "Werkle_Chevalley_Baudin_Labo08_Fonction.h"
 
-void inserer(int tab[], const int N, int val) {
-   int positionInsertion;
-   bool positionAssignee = false;
+void inserer(vector<int>& v1, int val) {
 
-   //Cas où le tableau contient encore des valeurs vides (donc des 0)
-   for (int i = 0; i < N - 2; i++) {
-      if (!positionAssignee) {
-         if (tab[0] == 0 && tab[N - 1] == 0) {
-            positionInsertion = i;
-            positionAssignee = true;
-         } else if (val >= tab[i] && tab[i + 1] == 0) {
-            positionInsertion = i + 1;
-            positionAssignee = true;
-         } else if (val < tab[i] && tab[i + 1] == 0) {
-            positionInsertion = i;
-            positionAssignee = true;
+   //Insérer la plus petite valeur du vector en 1ère position
+   if (v1.empty() || (val < v1.front()))
+   {
+      v1.insert(v1.begin(), val);
+   }
+
+   else
+   {
+      for (int i = 0; i < v1.size(); i++)
+      {
+         //Insérer la valeur en respectant l'ordre croissant
+         if (i != v1.size()-1 && val >= v1.at(i) && val <= v1.at(i+1))
+         {
+            v1.insert(v1.begin()+i+1, val);
+            break;
          }
+
+         //Insérer la plus grande valeur du vector en dernière position
+         else if (i == v1.size()-1)
+         {
+            if (val > v1.at(i))
+            {
+               v1.insert(v1.end(), val);
+               break;
+            }
+         }
+
       }
    }
-
-   //Cas où le tableau a déjà été intégralement remplis
-   if (!positionAssignee) {
-      positionInsertion = positionOrdreCroissant(tab, N, val);
-   }
-   //Décale vers la droite les valeurs du tableau supérieures à la valeur à insérer
-   for (int i = N - 1; i >= positionInsertion; i--) {
-      tab[i] = tab[i - 1];
-   }
-
-
-   //Insère la valeur dans le tableau en respectant l'ordre croissant
-   tab[positionInsertion] = val;
 }
 
 int positionOrdreCroissant(int tab[], int N, int val) {
@@ -78,44 +77,41 @@ int positionOrdreCroissant(int tab[], int N, int val) {
    return position;
 }
 
-void supprimerDoublons(int tab[], const int N) {
-
-   for (int i = 0; i < N - 1; i++) {
-
-      //Compare la valeur de i avec toutes les suivantes du tableau et au besoin
-      for (int j = i; j < N - 1; j++) {
-
-         //Cas spécifique où le tableau commence par un triple (ou +) même nombre
-         if (j == 1) {
-            if (tab[j] == tab[j - 1]) {
-               //Décalage des valeurs vers la gauche pour écraser le doublon
-               for (int k = j - 1; k < N - 1; k++) {
-                  tab[k] = tab[k + 1];
-               }
-               tab[N - 1] = 0;
-            }
+void supprimerDoublons(vector<int>& v1)
+{
+   for (int i = 0; i < v1.size()-1; i++)
+   {
+         if (v1.at(i) == v1.at(i+1))
+         {
+            v1.erase(v1.begin()+i+1);
+            i--;
          }
-
-         if (tab[j] == tab[j + 1]) {
-            //Décalage des valeurs vers la gauche pour écraser le doublon
-            for (int k = j; k < N - 1; k++) {
-               tab[k] = tab[k + 1];
-            }
-            tab[N - 1] = 0;
-         }
-      }
    }
 }
 
 void copieTable1Table2(vector<int> v1, vector<int> v2) {
 
-   vector<int> v2(v1);
+   for(size_t i = 0; i < v1.size();i++)
+   {
+      v2.at(i) = v1.at(i);
+   }
+//   cout << "vector1:"<< endl;
+//   for(size_t i = 0;i < v1.size();i++)
+//   {
+//      cout << v1.at(i) << " ";
+//   }
+//   cout <<endl;
+//   cout << "vector2:"<< endl;
+//   for(size_t i = 0;i < v2.size();i++)
+//   {
+//      cout << v2.at(i) << " ";
+//   }
 }
 
 void changerValTable2(vector<int> v2) {
 
    if (v2.size() % 2 == 0) {
-      
+
       for (size_t i = 0; i < v2.size(); i = i + 2) {
          int tmp = v2.at(i) + v2.at(i + 1);
          v2.at(i) = tmp - v2.at(i);
@@ -128,7 +124,11 @@ void changerValTable2(vector<int> v2) {
          v2.at(i) = tmp - v2.at(i);
          v2.at(i + 1) = tmp - v2.at(i + 1);
       }
-      v2.at(v2.size() - 1) = v2.at(v2.size() - 1);
+   }
+
+   for(size_t i = 0;i < v2.size();i++)
+   {
+      cout << v2.at(i) << " ";
    }
 }
 
@@ -148,13 +148,13 @@ void afficherTableau(int table1[], int table2[], int N) {
 }
 
 void supprimerValeursPaires(int table1[], int N) {
-   int tabTemp[N] = {};
+
    int j = 0;
 
    //Stock dans le tableau temporaire les valeurs impairs
    for (int i = 0; i < N; i++) {
       if (table1[i] % 2 != 0) {
-         tabTemp[j] = table1[i];
+
          j++;
       }
    }
@@ -162,7 +162,7 @@ void supprimerValeursPaires(int table1[], int N) {
    //Assigne les valeurs du tableau temporaires à table1 pour n'avoir
    //plus que les valeurs impairs
    for (int i = 0; i < N; i++) {
-      table1[i] = tabTemp[i];
+
    }
 }
 
