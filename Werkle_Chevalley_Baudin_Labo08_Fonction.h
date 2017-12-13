@@ -46,7 +46,7 @@ void changerValTable2(vector<int> v2);
  *
  * Cette Fonction permet d'afficher les valeurs de table1 et table2
  */
-void afficherTableau( int table1[], int table2[], int N);
+void afficherTableau(vector<int> v1, vector<int> v2);
 
 /**
  \brief Insère une valeur dans un tableau

@@ -132,17 +132,16 @@ void changerValTable2(vector<int> v2) {
    }
 }
 
-void afficherTableau(int table1[], int table2[], int N) {
-
+void afficherTableau(vector<int> v1, vector<int> v2) {
    cout << "table1 : " << endl;
 
-   for (int i = 0; i < N; i++) {
-      cout << table1[i] << " ";
+   for (int i = 0; i < v1.size(); i++) {
+      cout << v1.at(i) << " ";
    }
    cout << endl;
    cout << "table2 : " << endl;
-   for (int i = 0; i < N; i++) {
-      cout << table2[i] << " ";
+   for (int i = 0; i < v2.size(); i++) {
+      cout << v2.at(i) << " ";
    }
    cout << endl;
 }

@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1513181612 source:c:\users\admin\documents\github\labo09\main.cpp
+	<cstdlib>
+	<climits>
+	<iostream>
+	<string>
+	<vector>
+	"Werkle_Chevalley_Baudin_Labo08_Fonction.h"
+
+1513181089 c:\users\admin\documents\github\labo09\werkle_chevalley_baudin_labo08_fonction.h
+

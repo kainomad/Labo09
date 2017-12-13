@@ -61,7 +61,7 @@ int main() {
          }
          case 2:
          {
-
+            afficherTableau(v1,v2);
             break;
          }
          case 3:
